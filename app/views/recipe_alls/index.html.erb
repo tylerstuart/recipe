@@ -1,0 +1,29 @@
+<h1>Listing recipe_alls</h1>
+
+<table>
+    <% @recipe_alls.each do |recipe_all| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td class="list_description">
+        <dl>
+            <dt><%= recipe_all.recipe %></dt>
+            <dd><%= truncate(strip_tags(recipe_all.description),
+                   length: 80) %></dd>
+        </dl>
+        
+    </td>
+
+    <td class="list_actions">
+        <%= link_to 'Show', recipe_all %><br />
+        <%= link_to 'Edit', edit_recipe_all_path(recipe_all) %><br />
+        <%= link_to 'Destroy', recipe_all,
+                     confirm: 'Are you sure?',
+                     method: :delete %>
+
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Recipe all', new_recipe_all_path %>
