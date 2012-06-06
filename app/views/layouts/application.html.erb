@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
-
-<%= yield %>
-
+ <div id="banner">
+ 	<h1>Smoken Recipes</h1>
+ 	<%= form_tag recipe_alls_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+ </div>
+ <div id="columns">
+ 	<div id="side">
+ 		<ul>
+ 		</ul>
+ 	</div>
+ 	<div id="main">
+ 		<%= yield %>
+ 	</div>
+ </div>
 </body>
 </html>

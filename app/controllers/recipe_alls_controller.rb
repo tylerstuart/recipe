@@ -2,7 +2,12 @@ class RecipeAllsController < ApplicationController
   # GET /recipe_alls
   # GET /recipe_alls.json
   def index
-    @recipe_alls = RecipeAll.all
+    @search = RecipeAll.search do
+      fulltext params[:search]
+    end
+    @recipe_alls = @search.results 
+    #@recipe_alls = RecipeAll.paginate page: params[:page], order: 'created_at desc',
+    # per_page: 10
 
     respond_to do |format|
       format.html # index.html.erb
