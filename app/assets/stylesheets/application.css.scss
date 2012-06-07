@@ -145,3 +145,19 @@ td.sidebar {
   list-style: square;
 }
 
+/* Sign up button */
+
+a.signup_button {
+  margin-left: auto;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: white;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+

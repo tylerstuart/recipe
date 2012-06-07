@@ -9,9 +9,16 @@
 <body class='<%= controller.controller_name %>'>
  <div id="banner">
  	<h1>Smoken Recipes</h1>
+      <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
  	<nav class="round">
  		<ul>
- 			<li><%= link_to "Recipes", '#' %></li>
+ 			<li><%= link_to "Recipes", root_path %></li>
+ 	    <% if signed_in? %>
+          <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+          <li><%= link_to "Profile", current_user %></li>
+        <% else %>
+          <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
  		</ul>
  	</nav>
  	<%= form_tag recipe_alls_path, :method => :get do %>
@@ -27,6 +34,11 @@
  		</ul>
  	</div>
  	<div id="main">
+ 	  <section class="round">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+      </section>
  		<%= yield %>
  	</div>
  	<%= debug(params) if Rails.env.development? %>
