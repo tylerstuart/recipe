@@ -9,11 +9,16 @@
 <body class='<%= controller.controller_name %>'>
  <div id="banner">
  	<h1>Smoken Recipes</h1>
+ 	<nav class="round">
+ 		<ul>
+ 			<li><%= link_to "Recipes", '#' %></li>
+ 		</ul>
+ 	</nav>
  	<%= form_tag recipe_alls_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+    <p id="search">
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
 <% end %>
  </div>
  <div id="columns">
@@ -24,6 +29,7 @@
  	<div id="main">
  		<%= yield %>
  	</div>
+ 	<%= debug(params) if Rails.env.development? %>
  </div>
 </body>
 </html>

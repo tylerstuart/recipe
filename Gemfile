@@ -5,11 +5,14 @@ gem 'rails', '3.2.0'
 gem 'will_paginate', '~> 3.0'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'ajaxful_rating'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do 
   gem 'sqlite3', '1.3.5'
+  gem 'annotate', '2.4.0'
 end
 
 
